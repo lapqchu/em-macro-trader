@@ -34,7 +34,26 @@ description: >
   what's priced in, bear case, bull case, sell-off, rally, positioning,
   sovereign credit, CDS, downgrade, upgrade, rating,
   BoP, current account, terms of trade, FX pass-through, fiscal dominance,
-  commodity EM, oil exporter, China data, credit impulse
+  commodity EM, oil exporter, China data, credit impulse,
+  Five-Star trade, fusion approach, FX driver, delta vs level, Dollar Smile,
+  Slingshot Reversal, shooting star, hammer candle, deviation from MA, volume spike,
+  broken triangle, Sunday gap, double top, triple top, double bottom, triple bottom,
+  NewsPivot, news pivot, kneejerk, fade the kneejerk, bad news good price,
+  correlation trade, intermarket, lead lag, divergence, overlay chart,
+  currency driver map, cross-pair, vol-weighted, basket approach,
+  free capital, monthly chunking, conviction sizing, conviction grade,
+  position sizing, stop loss placement, trailing stop, ADR, average daily range,
+  Kelly criterion, half-Kelly, quarter-Kelly, risk of ruin, fat tails,
+  overtrading, slump, trading slump, trade journal, trading journal,
+  tight aggressive, FOMO, confirmation bias, loss aversion, anchoring bias,
+  herding, round number bias, overconfidence, extrapolation bias,
+  sentiment, positioning, COT, Cheer Hedge, WTF indicator, Magazine Cover,
+  WMR fix, month-end fix, option expiry, Twilight Zone, LDN NY overlap,
+  time of day, market microstructure, market profile, single prints,
+  Donnelly, Art of Currency Trading, 25 Rules,
+  EURUSD, USDJPY, GBPUSD, AUDUSD, NZDUSD, USDCAD, USDCHF, EURGBP,
+  EURNOK, EURSEK, AUDNZD, EURCHF, petrocurrency, commodity currency,
+  G10, DM FX, developed market FX, cross-pair construction
 ---
 
 # EM Macro Trader — Adversarial Trading Intelligence
@@ -95,6 +114,21 @@ When the user brings a question, route it to the right framework. Common phrasin
 | "mortgage hedging", "convexity flows", "MBS impact" | Jha: positive feedback loop → Rising rates: duration extends, pay swaps → Falling rates: duration shortens, receive swaps → Amplifies moves |
 | "Treasury supply", "who buys Treasuries", "auction impact" | Jha demand framework → Foreign CBs ~50%, Fed, banks, pensions ~9%, funds, households → Sector facing auction cheapens |
 | "US rates view", "10Y fair value", "where should UST be" | Jha Checklist 4 (View Hierarchy) → Decades/years/months/weeks framework → Total duration supply/demand → Fed regime |
+| "Five-Star trade", "how many stars", "conviction grade" | Donnelly Checklist 1 (Five-Star Qualification) → Fundamentals + cross-market + positioning + technicals + gut → Size per conviction (1%/3%/6%) |
+| "FX driver", "what drives [G10 pair]", "currency driver map" | Donnelly driver map (13 pairs) + Checklist 2 (Regime Identification) → Global vs domestic regime → Dollar Smile state |
+| "delta vs level", "what's changed", "priced in" | Donnelly delta vs. level principle → Willer catalyst approach → Market trades the change, not the level |
+| "Slingshot", "false break", "failed breakout", "Seven Deadly Setups" | Donnelly Checklist 6 (Seven Setups) → Entry/stop/target per setup → Multi-setup convergence scoring |
+| "NewsPivot", "data trading", "fade kneejerk", "trade the number" | Donnelly Checklist 4 (News/Data) → Three strategies (go with extreme, fade kneejerk, bad news/good price) → NewsPivot reference |
+| "CB meeting EV", "expected value of CB", "what's priced for [CB]" | Donnelly Checklist 5 (CB EV) → Probability grid → Breakeven check → Rule #9: never fade surprise |
+| "correlation", "intermarket", "lead lag", "divergence scan" | Donnelly Checklist 3 (Correlation) → Overlay charts → Divergence validation → Crosswinds test |
+| "position sizing", "how much to risk", "free capital", "monthly limits" | Donnelly Checklist 7 (Sizing) → Adjusted free capital → Monthly chunking (10% stop / 2× target) → Conviction sizing (1/3/6%) |
+| "stop loss", "where to stop", "trailing stop", "stop methodology" | Donnelly Checklist 7 → Technical convergence + 20% ADR buffer → ADR-based (1.2× short-term, 2.5× medium-term) → Three iron rules |
+| "slump", "losing streak", "on tilt", "trading badly" | Donnelly Checklist 8 (Behavioral) → Slump protocol (square, 20% size, talk, research, perspective) → Wait for Five-Star |
+| "overtrading", "too many trades", "random trades" | Donnelly Checklist 8 → Trade quota or time windows or extreme size variation → Rule #24 |
+| "am I biased", "confirmation bias", "emotional", "behavioral" | Donnelly Checklist 8 (Behavioral Self-Assessment) → Morning assessment → During-session triggers → Nine bias countermeasures |
+| "DM FX", "G10", "EURUSD view", "dollar view", "DXY trade" | Donnelly driver map + Checklist 2 (Regime) + Checklist 3 (Correlation) → Feed into Booth 65% global factor for EM overlay |
+| "Sunday gap", "weekend risk", "gap trade" | Donnelly Setup 7 → 85% reverse within 48hrs → Entry in opening hour, stop 1× ADR, TP at 90% fill |
+| "WMR fix", "month-end fix", "fix flow" | Donnelly microstructure → 5-min window, month-end largest → Opportunity when prior directional reasons exist |
 | "which country", "country screening", "where to put on risk" | country_snapshot.py → Willer factor ranking → Regional allocation (commodities→Latam, EUR→CEEMEA) |
 | "is this safe", "risk-free", "safe haven", "UST vs EM" | Booth 4D risk framework → Compare SDm/Pr/U/E across assets → Challenge "safe" label |
 | "who holds this", "investor base", "crowded", "positioning risk" | Booth blow-up indicators → Investor homogeneity + misperception + leverage check |
@@ -102,7 +136,7 @@ When the user brings a question, route it to the right framework. Common phrasin
 | "why EM", "strategic case", "allocation", "should I be in EM" | Booth: GDP weighting (38-50%), risk perception inversion, core/periphery disease → Structural tailwind |
 | "structural shift", "regime change", "this time is different" | Booth Checklist 4 (structural vs. tactical environment) → Determine if conventional tools apply |
 
-If the query doesn't match any of these, start with the 5-layer analytical framework and work through it.
+If the query doesn't match any of these, start with the five-layer analytical framework and work through it.
 
 ## Analytical Framework
 
@@ -177,7 +211,7 @@ Every trade has multiple components. Decompose explicitly:
 After steps 1-4, give an honest assessment:
 - **Conviction level**: Strong, moderate, weak, or reject
 - **Key risk**: The single biggest threat to the thesis
-- **Suggested structure**: If the trade has merit, how should it be expressed? (outright, spread, option overlay, long-dated put for bounded-risk carry, call selling for vol premium, conditional curve/spread trade, DV01-neutral butterfly, carry-efficient alternative). Consult James checklists for FX option structure guidance — especially tenor (3M+ for EM puts) and strike (ATMF preferred over OTM). Consult Jha checklists for rates structuring — carry-efficient alternatives (Checklist 1), RV construction (Checklist 2), conditional trades (Checklist 6), hedging instrument selection (Checklist 3).
+- **Suggested structure**: If the trade has merit, how should it be expressed? (outright, spread, option overlay, long-dated put for bounded-risk carry, call selling for vol premium, conditional curve/spread trade, DV01-neutral butterfly, carry-efficient alternative). Consult James checklists for FX option structure guidance — especially tenor (3M+ for EM puts) and strike (ATMF preferred over OTM). Consult Jha checklists for rates structuring — carry-efficient alternatives (Checklist 1), RV construction (Checklist 2), conditional trades (Checklist 6), hedging instrument selection (Checklist 3). Consult Donnelly checklists for FX execution — Five-Star conviction grade (Checklist 1), entry via Seven Deadly Setups (Checklist 6), stop loss placement (Checklist 7), DM FX leg analysis via currency driver map and correlation framework (Checklist 3).
 - **Sizing guidance**: Relative to the user's typical risk budget, not absolute notionals
 
 ## Convention and Precision Standards
@@ -217,8 +251,10 @@ Reference materials are stored in `references/`:
 - `james-fx-options-checklists.md` — Options: instrument selection, hedging decision (options vs forwards), carry-via-options strategies, vol risk premium assessment, pre-trade integration with Willer/Booth, pair-level quick reference, sizing and risk management
 - `jha-rates-mechanics-digest.md` — Rates mechanics: DV01, carry + rolldown, forward rates, Fed regime dynamics, Treasury supply/demand (total duration, demand by source), MBS convexity hedging flows, swap spread drivers, interest rate options (normal vs Black, Greeks, supply/demand for vol), Treasury futures basis/CTD/rolls, RV trade construction, conditional curve and spread trades
 - `jha-rates-mechanics-checklists.md` — Rates mechanics: carry trade evaluation, RV trade construction (regression weights, DV01↔notional), hedging decision tree (swaps vs Treasuries vs futures, DV01 × yield beta), rates view hierarchy (decades→weeks), swap spread analysis, conditional trade setup, basis trade assessment, rate vol trading framework
+- `donnelly-art-fx-trading-digest.md` — FX execution: fusion approach (Five-Star trade convergence), FX driver framework (4 global + 3 domestic), delta vs. level principle, Dollar Smile, interest rate/inflation regime matrix, Seven Deadly Setups (Slingshot, Hammers, Deviation, Volume Spike, Broken Triangles, Double/Triple Top, Sunday Gaps) with quantitative parameters, currency driver map (13 DM pairs), lead/lag correlation method, nine cognitive biases with countermeasures, positioning vs. sentiment framework, NewsPivot and three data strategies, CB meeting EV grid, conviction sizing (1/3/6%), monthly chunking (10% stop / 2× target), Kelly criterion, stop loss methodology, slump protocol, 25 Rules
+- `donnelly-art-fx-trading-checklists.md` — FX execution: Five-Star qualification, FX driver regime identification, correlation/intermarket divergence trade, news/data event trading, CB meeting EV framework, Seven Deadly Setups entry decision tree, position sizing and risk management, behavioral self-assessment, daily trading routine, cross-reference situation→checklist table
 
-**Four-layer analytical architecture:** Willer provides the tactical layer (when to enter/exit, how to size, which factors to trade). Booth provides the strategic layer (why EM has structural tailwinds, how investor base dynamics drive mispricings, when conventional tools should be abandoned). James provides the FX options layer (empirical evidence on when options deliver value, which tenors and strikes to use, how to express carry views through options with bounded risk). Jha provides the rates mechanics layer (the plumbing underneath all rates positions — DV01 risk thinking, carry + rolldown decomposition, curve construction, Fed regime dynamics, supply/demand framework, MBS convexity flows, swap spread drivers, rate option mechanics, RV trade construction, conditional trades, basis trading). Since 65% of EM returns are driven by DM factors (Willer), Jha's DM rates mechanics directly inform EM analysis and enable DM positions and cross-market RV. Use all four layers: Booth for strategic conviction, Willer for trade timing and sizing, James for FX option instrument selection and vol risk premium assessment, Jha for rates mechanics, hedging, carry decomposition, and trade structuring.
+**Five-layer analytical architecture:** Willer provides the tactical layer (when to enter/exit, how to size, which factors to trade). Booth provides the strategic layer (why EM has structural tailwinds, how investor base dynamics drive mispricings, when conventional tools should be abandoned). James provides the FX options layer (empirical evidence on when options deliver value, which tenors and strikes to use, how to express carry views through options with bounded risk). Jha provides the rates mechanics layer (the plumbing underneath all rates positions — DV01 risk thinking, carry + rolldown decomposition, curve construction, Fed regime dynamics, supply/demand framework, MBS convexity flows, swap spread drivers, rate option mechanics, RV trade construction, conditional trades, basis trading). Donnelly provides the FX execution and trade management layer (practitioner-level fusion approach — entry timing via Seven Deadly Setups, stop placement methodology, conviction-based position sizing (1/3/6%), monthly P&L management, correlation/intermarket trading via lead/lag divergences, news/data trading framework (NewsPivot, three strategies), CB meeting EV grid, DM FX driver map for 13 G10 pairs, behavioral self-management with nine bias countermeasures, slump protocol, and overtrading prevention). Since 65% of EM returns are driven by DM factors (Willer), both Jha's DM rates mechanics and Donnelly's DM FX framework directly inform EM analysis. Use all five layers: Booth for strategic conviction, Willer for trade timing and sizing, James for FX option instrument selection and vol risk premium assessment, Jha for rates mechanics and trade structuring, Donnelly for FX execution, position sizing, behavioral discipline, and DM FX analysis that feeds EM views.
 
 When answering questions, check `references/` for relevant material before responding. If a source has been ingested that is directly relevant, use its framework and cite it.
 
@@ -264,6 +300,17 @@ First, classify the trade type and map it to the relevant checklists.
 - **Conditional trades** → Checklist 6: Swaption-based curve and spread trades, premium neutrality check, expiry < 3M rule
 - **Basis trade assessment** → Checklist 7: CTD identification, BNOC vs delivery option model, balance sheet and repo risk
 - **Rate vol trading** → Checklist 8: Vol regime, structural supply/demand, expiry vs tail switches, gap risk / skew / path dependency warnings
+
+**FX execution and trade management layer** (Donnelly — `references/donnelly-art-fx-trading-checklists.md`) — for FX trade execution, sizing, and self-management:
+- **Trade qualification** → Checklist 1: Five-Star scoring (fundamentals + cross-market + positioning + technicals + gut) → conviction grade (3/4/5-star)
+- **Regime identification** → Checklist 2: Global vs. domestic focus, Dollar Smile state, which driver set applies today
+- **Correlation/intermarket** → Checklist 3: Lead/lag divergence scan, overlay charts, crosswinds test, driver map for 13 G10 pairs
+- **News/data event trading** → Checklist 4: NewsPivot, three strategies (go with extreme, fade kneejerk, bad news/good price), post-event decision tree
+- **CB meeting EV** → Checklist 5: Probability grid, breakeven check, Rule #9 (never fade surprise)
+- **Seven Deadly Setups** → Checklist 6: Entry/stop/target for each setup, multi-setup convergence scoring
+- **Position sizing and risk** → Checklist 7: Monthly chunking (10% stop / 2× target), conviction sizing (1/3/6%), position size formula, stop loss rules, vol-adjustment
+- **Behavioral self-assessment** → Checklist 8: Morning assessment, during-session triggers, nine bias countermeasures, slump protocol
+- **Daily routine** → Checklist 9: Pre-market → active trading → post-overlap → weekend process
 
 Then dynamically build the data requirement list for the specific trade. The categories are always the same; the specific instruments change:
 
@@ -368,6 +415,7 @@ e.g., "Pay [Country] 2s10s flattener, DV01-neutral at [levels]"
 [Apply Booth strategic overlay: investor base assessment, perception layer, structural shift check]
 [Apply James options overlay if relevant: could this trade be expressed through options? What does the payoff/premium data say about this pair/tenor? Is the vol risk premium working for or against the trade?]
 [Apply Jha rates mechanics overlay: decompose P&L into direction + carry + roll + vol + correlation + liquidity. For DM rates or EM rates with DM overlay: Fed regime, supply/demand, MBS convexity flow direction, swap spread dynamics. For hedging: swap vs Treasury decision, DV01 × yield beta hedge ratio. For structured trades: conditional setup if joint view exists, RV construction if mean-reversion target]
+[Apply Donnelly FX execution overlay: What is the Five-Star conviction grade? Which of the Seven Deadly Setups (if any) support the entry? What does the currency driver map say for DM FX legs? Is there a correlation divergence supporting the trade (lead/lag method)? Are there upcoming data events requiring NewsPivot awareness? What is the correct position size per conviction (1/3/6%) within monthly chunking limits? Where exactly is the stop (technical convergence + ADR buffer)? Behavioral check: is the user trading from a slump, emotional state, or FOMO? For DM FX legs of EM trades: apply the Donnelly driver map and regime identification to determine the DXY/G10 component]
 
 ## Missing Data / Unresolved Questions
 [What you couldn't find that matters]
