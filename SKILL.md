@@ -9,6 +9,20 @@ description: >
   IRS, NDF, swap, carry, real rate, rate cycle, hiking, cutting, easing, tightening,
   roll-down, breakeven, linker, intervention, emergency hike, IMF package, election risk,
   DXY, dollar strength, risk-off, risk-on, EM, emerging market, frontier,
+  option, put, call, straddle, strangle, vol, implied vol, realized vol, vol premium,
+  risk reversal, butterfly, delta, gamma, vega, theta, OTM, ATM, ATMF, premium,
+  hedge with options, option vs forward, sell vol, buy vol, protective put, covered call,
+  vol risk premium, skew, smile, tenor selection, option strategy, FX option,
+  DV01, duration, convexity, carry, rolldown, roll-down, forward rate, repo, financing,
+  swap spread, basis trade, CTD, cheapest to deliver, Treasury futures, fed funds,
+  butterfly trade, curve trade, conditional trade, swaption, payer, receiver,
+  cap, floor, caplet, MBS, mortgage hedging, convexity hedging, supply demand,
+  auction, on-the-run, off-the-run, TIPS, breakeven inflation, SOFR, LIBOR,
+  hedge ratio, yield beta, DV01 neutral, regression weights, par curve,
+  calendar spread, roll, futures roll, delivery option, net basis, BNOC,
+  normal vol, implied vol, realized vol, gamma theta, delta hedging,
+  rate options, rate vol, expiry switch, tail switch, vega neutral, gamma neutral,
+  US rates, UST, Treasury, 2Y, 5Y, 10Y, 30Y, fed, FOMC, QE,
   BRL, MXN, ZAR, TRY, INR, IDR, COP, CLP, PEN, PLN, HUF, KRW, THB, MYR, PHP, TWD,
   CNY, CNH, EGP, NGN, ARS, RUB, CZK, ILS, SGD, RON, VND,
   BCB, Banxico, SARB, CBRT, RBI, BI, BoT, NBP, MNB, BanRep, BCCh, BCRP, BoK, BNM,
@@ -63,8 +77,30 @@ When the user brings a question, route it to the right framework. Common phrasin
 | "how do I size this", "risk budget" | Trade evaluation Step 5 → Sizing guidance → Vol-adjustment |
 | "RV", "relative value", "cheap vs rich", "[country] vs [country]" | Run the relevant checklist for BOTH legs → compare factor scores |
 | "credit", "spreads", "EMBIG", "sovereign bonds" | Checklist 3 (Credit) → Factor hierarchy → Sweet spot (BB 3-5Y) → Rating rules |
-| "vol", "implied vol", "skew", "options" | Acknowledge known gap (Willer: "weapons of mass alpha" but not developed) → fall back to general knowledge |
+| "vol", "implied vol", "skew", "options", "premium" | James FX Options layer → Payoff/premium ratios → Vol risk premium assessment (Checklist 4) → EM-specific pair data |
+| "should I use options or forwards to hedge", "option vs forward" | James Checklist 2 (Hedging Decision) → EM: options dominate forwards for depreciation hedging at 1M+ → Forward wins for appreciation hedging |
+| "sell vol", "sell calls", "short options", "vol selling" | James Checklist 3 (call selling) → SHORT-DATED CALLS ONLY → MUST cite tail-risk warnings → Negatively skewed returns → 2008 drawdown |
+| "buy puts", "protective put", "carry trade with options" | James Checklist 3 (put buying + carry-directed) → 12M tenor preferred, 3M minimum → EM puts cheap at 3M+ → Positively skewed returns |
+| "which tenor for options", "1M vs 3M vs 12M option" | James tenor analysis → Short-dated (1W-1M) expensive across the board → 3M+ for EM puts → 12M sweet spot |
+| "EMFX vol", "EM vol premium", "is vol cheap or expensive" | James vol risk premium framework → Implied > realized at short tenors → EM gap larger than G10 → Checklist 4 (vol assessment) |
+| "DV01", "how much risk", "notional vs risk", "position sizing in rates" | Jha: think in DV01, never notional → DV01 = ModD × Dirty Price / 100 → Checklist 3 (Hedging) for hedge ratios |
+| "carry", "rolldown", "carry + rolldown", "breakeven on this position" | Jha Checklist 1 (Carry) → Carry = coupon − financing, rolldown = aging on static curve → Combined = fwd rate at aged maturity − spot at aged maturity |
+| "butterfly", "2s5s10s", "RV trade", "regression weights" | Jha Checklist 2 (RV Construction) → Multiple regression for neutral weights → Convert risk weights to notional → Regime check for beta stability |
+| "swap spread", "spread widening", "why are spreads moving" | Jha Checklist 5 (Swap Spreads) → Driver table → Directionality (~7bp/100bp yield) → Mortgage hedging, bank credit, supply |
+| "conditional trade", "swaption structure", "express view only if" | Jha Checklist 6 (Conditional) → Both legs same option type → DV01-neutral notionals → Premium neutral preferred → Expiry < 3M |
+| "basis trade", "CTD", "futures vs cash", "delivery option" | Jha Checklist 7 (Basis) → BNOC = delivery option value → Balance sheet risk → Term out repo → Historical tail risk |
+| "rate vol", "swaption vol", "gamma vs theta", "sell rate vol" | Jha Checklist 8 (Vol Trading) → Structural supply/demand → Expiry vs tail switches → Three warnings (gap risk, skew, path dependency) |
+| "hedge this", "how to hedge rates exposure", "swaps vs Treasuries" | Jha Checklist 3 (Hedging) → Swaps default for core hedges (better in stress) → DV01-match × yield beta → Monitor beta stability |
+| "Fed regime", "what does the Fed mean for", "tightening cycle" | Jha rates view hierarchy → Easing: front steepens → Tightening: front flattens → On-hold: carry/RV dominate → MBS flow direction |
+| "mortgage hedging", "convexity flows", "MBS impact" | Jha: positive feedback loop → Rising rates: duration extends, pay swaps → Falling rates: duration shortens, receive swaps → Amplifies moves |
+| "Treasury supply", "who buys Treasuries", "auction impact" | Jha demand framework → Foreign CBs ~50%, Fed, banks, pensions ~9%, funds, households → Sector facing auction cheapens |
+| "US rates view", "10Y fair value", "where should UST be" | Jha Checklist 4 (View Hierarchy) → Decades/years/months/weeks framework → Total duration supply/demand → Fed regime |
 | "which country", "country screening", "where to put on risk" | country_snapshot.py → Willer factor ranking → Regional allocation (commodities→Latam, EUR→CEEMEA) |
+| "is this safe", "risk-free", "safe haven", "UST vs EM" | Booth 4D risk framework → Compare SDm/Pr/U/E across assets → Challenge "safe" label |
+| "who holds this", "investor base", "crowded", "positioning risk" | Booth blow-up indicators → Investor homogeneity + misperception + leverage check |
+| "contagion", "EM sell-off spreading", "risk-off everywhere" | Booth: collective EM risk category is empty post-2001 → Distinguish liquidity event from credit event |
+| "why EM", "strategic case", "allocation", "should I be in EM" | Booth: GDP weighting (38-50%), risk perception inversion, core/periphery disease → Structural tailwind |
+| "structural shift", "regime change", "this time is different" | Booth Checklist 4 (structural vs. tactical environment) → Determine if conventional tools apply |
 
 If the query doesn't match any of these, start with the 5-layer analytical framework and work through it.
 
@@ -141,7 +177,7 @@ Every trade has multiple components. Decompose explicitly:
 After steps 1-4, give an honest assessment:
 - **Conviction level**: Strong, moderate, weak, or reject
 - **Key risk**: The single biggest threat to the thesis
-- **Suggested structure**: If the trade has merit, how should it be expressed? (outright, spread, option overlay, conditional)
+- **Suggested structure**: If the trade has merit, how should it be expressed? (outright, spread, option overlay, long-dated put for bounded-risk carry, call selling for vol premium, conditional curve/spread trade, DV01-neutral butterfly, carry-efficient alternative). Consult James checklists for FX option structure guidance — especially tenor (3M+ for EM puts) and strike (ATMF preferred over OTM). Consult Jha checklists for rates structuring — carry-efficient alternatives (Checklist 1), RV construction (Checklist 2), conditional trades (Checklist 6), hedging instrument selection (Checklist 3).
 - **Sizing guidance**: Relative to the user's typical risk budget, not absolute notionals
 
 ## Convention and Precision Standards
@@ -173,7 +209,16 @@ The goal is not summarization. It is deep method transfer — absorbing the auth
 Reference materials are stored in `references/`:
 - `ingestion-protocol.md` — How to process and structure new source material
 - `em-macro-foundations.md` — Core analytical frameworks and institutional knowledge
-- Additional files created from each ingested ebook/paper, named descriptively
+- `willer-chandran-lam-digest.md` — Tactical: 65/35 split, factor hierarchy, rate cycle timing, event playbooks, credit sweet spots
+- `willer-checklists.md` — Operational: EMFX evaluation, rates cycle, credit selection, event playbooks
+- `booth-upside-down-digest.md` — Strategic: risk perception inversion, 4D risk framework (SDm/Pr/U/E), investor base structure, market segmentation, meme analysis, GDP weighting, financial repression
+- `booth-checklists.md` — Strategic: 4D risk assessment, blow-up indicators, sovereign risk layers, structural shift detection, allocation rules, meme lifecycle, reserve diversification monitor
+- `james-fx-options-digest.md` — Options: empirical payoff/premium analysis across 34 pairs (20 EM), 7 tenors. EM puts systematically cheap at 3M+, EM calls systematically expensive, vol risk premium quantification, options vs forwards for hedging, carry trade via options
+- `james-fx-options-checklists.md` — Options: instrument selection, hedging decision (options vs forwards), carry-via-options strategies, vol risk premium assessment, pre-trade integration with Willer/Booth, pair-level quick reference, sizing and risk management
+- `jha-rates-mechanics-digest.md` — Rates mechanics: DV01, carry + rolldown, forward rates, Fed regime dynamics, Treasury supply/demand (total duration, demand by source), MBS convexity hedging flows, swap spread drivers, interest rate options (normal vs Black, Greeks, supply/demand for vol), Treasury futures basis/CTD/rolls, RV trade construction, conditional curve and spread trades
+- `jha-rates-mechanics-checklists.md` — Rates mechanics: carry trade evaluation, RV trade construction (regression weights, DV01↔notional), hedging decision tree (swaps vs Treasuries vs futures, DV01 × yield beta), rates view hierarchy (decades→weeks), swap spread analysis, conditional trade setup, basis trade assessment, rate vol trading framework
+
+**Four-layer analytical architecture:** Willer provides the tactical layer (when to enter/exit, how to size, which factors to trade). Booth provides the strategic layer (why EM has structural tailwinds, how investor base dynamics drive mispricings, when conventional tools should be abandoned). James provides the FX options layer (empirical evidence on when options deliver value, which tenors and strikes to use, how to express carry views through options with bounded risk). Jha provides the rates mechanics layer (the plumbing underneath all rates positions — DV01 risk thinking, carry + rolldown decomposition, curve construction, Fed regime dynamics, supply/demand framework, MBS convexity flows, swap spread drivers, rate option mechanics, RV trade construction, conditional trades, basis trading). Since 65% of EM returns are driven by DM factors (Willer), Jha's DM rates mechanics directly inform EM analysis and enable DM positions and cross-market RV. Use all four layers: Booth for strategic conviction, Willer for trade timing and sizing, James for FX option instrument selection and vol risk premium assessment, Jha for rates mechanics, hedging, carry decomposition, and trade structuring.
 
 When answering questions, check `references/` for relevant material before responding. If a source has been ingested that is directly relevant, use its framework and cite it.
 
@@ -185,14 +230,40 @@ This workflow applies to any EM instrument — IRS receivers/payers, FX position
 
 ### Phase 1: Identify Data Requirements
 
-First, classify the trade type and map it to the relevant Willer checklist (see `references/willer-checklists.md`):
+First, classify the trade type and map it to the relevant checklists.
 
+**Tactical layer** (Willer — `references/willer-checklists.md`):
 - **Rates directional** (receive/pay IRS, bond long/short) → Checklist 2: EM Rates Cycle Position
 - **FX directional** (long/short CCY) → Checklist 1: EMFX Trade Idea Evaluation
 - **Credit** (long/short sovereign bonds, CDS) → Checklist 3: EM Credit Country Selection
 - **Curve trades** (steepener/flattener) → Checklist 2 + curve-specific sections
 - **Relative value** (country A vs. B) → Run the relevant checklist for both legs
 - **Event-driven** → Checklist 4: Event Playbook + the relevant asset checklist
+
+**Strategic layer** (Booth — `references/booth-checklists.md`) — overlay on any trade:
+- **Investor base risk** → Checklist 2: Three Blow-Up Indicators (homogeneity, misperceived risk, leverage)
+- **Sovereign risk depth** → Checklist 3: Three-Layer Assessment (numbers, policy quality, perception)
+- **Risk comparison** → Checklist 1: Four-Dimensional Risk (SDm, Pr, U, E matrix) — especially when comparing EM vs. DM alternatives
+- **Regime assessment** → Checklist 4: Structural vs. Tactical Environment (determines which tools to use)
+- **Narrative analysis** → Checklist 6: Meme Lifecycle (is the dominant narrative growing, aging, or dying?)
+
+**Options layer** (James — `references/james-fx-options-checklists.md`) — when the trade involves or could involve options:
+- **Instrument selection** → Checklist 1: Puts vs calls, ATMF vs OTM, tenor selection, pair-level check
+- **Hedging decision** → Checklist 2: Options vs forwards for EM depreciation/appreciation hedging
+- **Option strategies** → Checklist 3: Long-dated put buying, carry-directed trading, short-dated call selling (with mandatory risk warnings)
+- **Vol assessment** → Checklist 4: Implied vs realized, regime considerations, EM-specific vol premium
+- **Cross-layer integration** → Checklist 5: How to combine James findings with Willer tactical and Booth strategic layers
+- **Pair quick reference** → Checklist 6: EM pair-level option performance data (USDBRL, USDTRY, USDZAR, etc.)
+
+**Rates mechanics layer** (Jha — `references/jha-rates-mechanics-checklists.md`) — for any rates position, DM or EM:
+- **Carry trade evaluation** → Checklist 1: Carry + rolldown computation, carry-to-risk ratio, crowding assessment, carry-efficient alternatives
+- **RV trade construction** → Checklist 2: Regression-based neutral weights, DV01-to-notional conversion, regime check for beta stability, par curve analysis
+- **Hedging decisions** → Checklist 3: Instrument selection (swaps vs Treasuries vs futures), DV01 × yield beta hedge ratio, maturity matching
+- **Rates view formation** → Checklist 4: Decades/years/months/weeks hierarchy, Fed regime, total duration supply/demand, demand source analysis
+- **Swap spread analysis** → Checklist 5: Driver mapping (bank credit, mortgage hedging, supply, pensions), directionality assessment, spread curve trades
+- **Conditional trades** → Checklist 6: Swaption-based curve and spread trades, premium neutrality check, expiry < 3M rule
+- **Basis trade assessment** → Checklist 7: CTD identification, BNOC vs delivery option model, balance sheet and repo risk
+- **Rate vol trading** → Checklist 8: Vol regime, structural supply/demand, expiry vs tail switches, gap risk / skew / path dependency warnings
 
 Then dynamically build the data requirement list for the specific trade. The categories are always the same; the specific instruments change:
 
@@ -294,6 +365,9 @@ e.g., "Pay [Country] 2s10s flattener, DV01-neutral at [levels]"
 ## Knowledge Base Application
 [What do the ingested sources say about this specific situation?]
 [Cite Willer framework, checklist items, or other sources explicitly]
+[Apply Booth strategic overlay: investor base assessment, perception layer, structural shift check]
+[Apply James options overlay if relevant: could this trade be expressed through options? What does the payoff/premium data say about this pair/tenor? Is the vol risk premium working for or against the trade?]
+[Apply Jha rates mechanics overlay: decompose P&L into direction + carry + roll + vol + correlation + liquidity. For DM rates or EM rates with DM overlay: Fed regime, supply/demand, MBS convexity flow direction, swap spread dynamics. For hedging: swap vs Treasury decision, DV01 × yield beta hedge ratio. For structured trades: conditional setup if joint view exists, RV construction if mean-reversion target]
 
 ## Missing Data / Unresolved Questions
 [What you couldn't find that matters]
