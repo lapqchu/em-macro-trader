@@ -50,10 +50,22 @@ description: >
   sentiment, positioning, COT, Cheer Hedge, WTF indicator, Magazine Cover,
   WMR fix, month-end fix, option expiry, Twilight Zone, LDN NY overlap,
   time of day, market microstructure, market profile, single prints,
-  Donnelly, Art of Currency Trading, 25 Rules,
+  Donnelly, Art of Currency Trading, Alpha Trader, 25 Rules,
   EURUSD, USDJPY, GBPUSD, AUDUSD, NZDUSD, USDCAD, USDCHF, EURGBP,
   EURNOK, EURSEK, AUDNZD, EURCHF, petrocurrency, commodity currency,
-  G10, DM FX, developed market FX, cross-pair construction
+  G10, DM FX, developed market FX, cross-pair construction,
+  narrative cycle, narrative turn, under the radar, primary trend, final hype,
+  Type I trade, Type II trade, Type III trade, high conviction, outlier opportunity,
+  competing hypotheses, ACH, alternative hypothesis, pre-mortem, tripwire,
+  risk appetite, risk appetite score, sensation seeking, house money,
+  variance, bad process, process diagnostic, losing streak,
+  crisis market, VIX 40, fast market, crisis trading,
+  strategy decay, kill your darlings, crowded strategy, edge erosion,
+  daily sheet, mood score, opportunity score, 12-12 journal,
+  default mode network, DMN, metacognition,
+  Turnaround Tuesday, September seasonal, bubble deflation,
+  month-end dollar, run-up trade, everybody bearish nobody short,
+  call option P&L, YTD-adjusted sizing, monthly stop loss
 ---
 
 # EM Macro Trader — Adversarial Trading Intelligence
@@ -135,6 +147,21 @@ When the user brings a question, route it to the right framework. Common phrasin
 | "contagion", "EM sell-off spreading", "risk-off everywhere" | Booth: collective EM risk category is empty post-2001 → Distinguish liquidity event from credit event |
 | "why EM", "strategic case", "allocation", "should I be in EM" | Booth: GDP weighting (38-50%), risk perception inversion, core/periphery disease → Structural tailwind |
 | "structural shift", "regime change", "this time is different" | Booth Checklist 4 (structural vs. tactical environment) → Determine if conventional tools apply |
+| "narrative", "where are we in the story", "theme lifecycle", "is this played out" | Alpha Trader Checklist 1 (Narrative Cycle) → Stage assessment → Action matrix → Combine with Booth meme lifecycle |
+| "Type I", "Type II", "Type III", "high conviction trade", "how big should I go" | Alpha Trader Checklist 2 (Type I/II/III) → Conviction grading → YTD-adjusted sizing formula → Monthly stop scale |
+| "pre-mortem", "alternative hypothesis", "what am I missing", "devil's advocate" | Alpha Trader Checklist 3 (Filtering) + Checklist 4 (ACH) → Five dimensions + alternative hypotheses → Diagnosticity assessment |
+| "risk appetite", "am I trading too aggressively", "too cautious", "sizing psychology" | Alpha Trader Checklist 5 (Risk Appetite) → 1-10 scoring → Zero-bound / end-of-period / house money effects |
+| "is this variance or am I broken", "losing streak diagnostic", "why am I losing" | Alpha Trader Checklist 6 (Variance vs. Process) → 9-item diagnostic → Variance (acceptable) vs. process failure (fix immediately) |
+| "VIX above 40", "crisis market", "everything is crashing", "fast market rules" | Alpha Trader Checklist 7 (Crisis Adaptation) → Four crisis rules → Vol-adjusted sizing → Override normal indicators |
+| "is my strategy still working", "edge decay", "crowded out", "kill your darlings" | Alpha Trader Checklist 8 (Strategy Decay) → 6-item diagnostic → Decision protocol (reduce/kill/adapt) |
+| "morning routine", "daily prep", "mood score", "trading journal system" | Alpha Trader Checklist 9 (Self-Management) → Daily Sheet + 12-12 journaling + One Goal + DMN awareness |
+| "Turnaround Tuesday", "September seasonal", "bubble deflation", "month-end dollar" | Alpha Trader Checklist 10 (Patterns) → Empirical data + setup criteria |
+| "everybody bearish nobody short", "consensus but no positioning" | Alpha Trader Checklist 10 → Enter after event clears → Positioning vacuum creates momentum |
+| "run-up trade", "pre-event positioning", "event approach trade" | Alpha Trader Checklist 10 → Position 2-3 days before obvious event → Positioning reduction + obvious trade + lotto ticket |
+| "metacognition", "thinking about thinking", "emotional awareness" | Alpha Trader Checklist 9 Part E → Emotion management protocol → Time delay strategy → DMN awareness |
+| "arcsine law", "when does the high/low happen", "period extremes" | Alpha Trader Checklist 10 (Patterns) → Highs/lows cluster at START and END of period (U-shaped), not randomly distributed |
+| "permabear", "grizzly bias", "bears sound smarter", "always bearish" | Alpha Trader digest Section 6 → Grizzly bias: negativity premium, permabears famous despite being wrong → SPX positive 73% of years |
+| "squirrel-chasing", "I entered because it was moving", "somebody must know", "chasing price" | Alpha Trader digest Section 6 → Squirrel-chasing bias: 97% of price action is noise → Could be divorce liquidation or tax loss selling |
 
 If the query doesn't match any of these, start with the five-layer analytical framework and work through it.
 
@@ -212,7 +239,7 @@ After steps 1-4, give an honest assessment:
 - **Conviction level**: Strong, moderate, weak, or reject
 - **Key risk**: The single biggest threat to the thesis
 - **Suggested structure**: If the trade has merit, how should it be expressed? (outright, spread, option overlay, long-dated put for bounded-risk carry, call selling for vol premium, conditional curve/spread trade, DV01-neutral butterfly, carry-efficient alternative). Consult James checklists for FX option structure guidance — especially tenor (3M+ for EM puts) and strike (ATMF preferred over OTM). Consult Jha checklists for rates structuring — carry-efficient alternatives (Checklist 1), RV construction (Checklist 2), conditional trades (Checklist 6), hedging instrument selection (Checklist 3). Consult Donnelly checklists for FX execution — Five-Star conviction grade (Checklist 1), entry via Seven Deadly Setups (Checklist 6), stop loss placement (Checklist 7), DM FX leg analysis via currency driver map and correlation framework (Checklist 3).
-- **Sizing guidance**: Relative to the user's typical risk budget, not absolute notionals
+- **Sizing guidance**: Relative to the user's typical risk budget, not absolute notionals. Apply Alpha Trader Type I/II/III grading with YTD-adjusted formula for high-conviction trades. Check narrative cycle stage and risk appetite score for sizing adjustments.
 
 ## Convention and Precision Standards
 
@@ -253,8 +280,10 @@ Reference materials are stored in `references/`:
 - `jha-rates-mechanics-checklists.md` — Rates mechanics: carry trade evaluation, RV trade construction (regression weights, DV01↔notional), hedging decision tree (swaps vs Treasuries vs futures, DV01 × yield beta), rates view hierarchy (decades→weeks), swap spread analysis, conditional trade setup, basis trade assessment, rate vol trading framework
 - `donnelly-art-fx-trading-digest.md` — FX execution: fusion approach (Five-Star trade convergence), FX driver framework (4 global + 3 domestic), delta vs. level principle, Dollar Smile, interest rate/inflation regime matrix, Seven Deadly Setups (Slingshot, Hammers, Deviation, Volume Spike, Broken Triangles, Double/Triple Top, Sunday Gaps) with quantitative parameters, currency driver map (13 DM pairs), lead/lag correlation method, nine cognitive biases with countermeasures, positioning vs. sentiment framework, NewsPivot and three data strategies, CB meeting EV grid, conviction sizing (1/3/6%), monthly chunking (10% stop / 2× target), Kelly criterion, stop loss methodology, slump protocol, 25 Rules
 - `donnelly-art-fx-trading-checklists.md` — FX execution: Five-Star qualification, FX driver regime identification, correlation/intermarket divergence trade, news/data event trading, CB meeting EV framework, Seven Deadly Setups entry decision tree, position sizing and risk management, behavioral self-assessment, daily trading routine, cross-reference situation→checklist table
+- `donnelly-alpha-trader-digest.md` — Psychology, methodology, mathematics: Alpha Trader equation, 7-stage narrative cycle, Type I/II/III conviction system with YTD-adjusted formulas, complete 7-step trade lifecycle, Analysis of Competing Hypotheses (ACH), extended behavioral finance (grizzly bias, squirrel-chasing, outcome bias, apophenia), risk appetite scoring (1-10), adaptation framework (3 daily variables, regime ID, crisis rules VIX>40, strategy decay), narrative expertise pillars, self-management systems (Daily Sheet, 12-12 journaling, One Goal, DMN), variance diagnostics (9-item), specific patterns (Turnaround Tuesday, September seasonal, bubble deflation ~85%, month-end dollar), cross-references with Art of Currency Trading and existing architecture
+- `donnelly-alpha-trader-checklists.md` — Psychology and methodology: narrative cycle assessment (7 stages → action matrix), Type I/II/III conviction grading (with YTD-adjusted sizing formula), trade filtering (5 dimensions + alternative hypotheses), ACH (8-step competing hypotheses for high-conviction trades), risk appetite self-scoring (1-10 + distorting effects), variance vs. bad process diagnostic (9-item), crisis market adaptation (VIX>40 four rules), strategy decay detection (6-item quarterly review), self-management systems (Daily Sheet, 12-12, One Goal, DMN, emotion protocol), specific patterns and heuristics, cross-reference situation→checklist table
 
-**Five-layer analytical architecture:** Willer provides the tactical layer (when to enter/exit, how to size, which factors to trade). Booth provides the strategic layer (why EM has structural tailwinds, how investor base dynamics drive mispricings, when conventional tools should be abandoned). James provides the FX options layer (empirical evidence on when options deliver value, which tenors and strikes to use, how to express carry views through options with bounded risk). Jha provides the rates mechanics layer (the plumbing underneath all rates positions — DV01 risk thinking, carry + rolldown decomposition, curve construction, Fed regime dynamics, supply/demand framework, MBS convexity flows, swap spread drivers, rate option mechanics, RV trade construction, conditional trades, basis trading). Donnelly provides the FX execution and trade management layer (practitioner-level fusion approach — entry timing via Seven Deadly Setups, stop placement methodology, conviction-based position sizing (1/3/6%), monthly P&L management, correlation/intermarket trading via lead/lag divergences, news/data trading framework (NewsPivot, three strategies), CB meeting EV grid, DM FX driver map for 13 G10 pairs, behavioral self-management with nine bias countermeasures, slump protocol, and overtrading prevention). Since 65% of EM returns are driven by DM factors (Willer), both Jha's DM rates mechanics and Donnelly's DM FX framework directly inform EM analysis. Use all five layers: Booth for strategic conviction, Willer for trade timing and sizing, James for FX option instrument selection and vol risk premium assessment, Jha for rates mechanics and trade structuring, Donnelly for FX execution, position sizing, behavioral discipline, and DM FX analysis that feeds EM views.
+**Five-layer analytical architecture:** Willer provides the tactical layer (when to enter/exit, how to size, which factors to trade). Booth provides the strategic layer (why EM has structural tailwinds, how investor base dynamics drive mispricings, when conventional tools should be abandoned). James provides the FX options layer (empirical evidence on when options deliver value, which tenors and strikes to use, how to express carry views through options with bounded risk). Jha provides the rates mechanics layer (the plumbing underneath all rates positions — DV01 risk thinking, carry + rolldown decomposition, curve construction, Fed regime dynamics, supply/demand framework, MBS convexity flows, swap spread drivers, rate option mechanics, RV trade construction, conditional trades, basis trading). Donnelly provides the FX execution and trade management layer across two complementary books: *Art of Currency Trading* provides the FX-specific execution framework (entry timing via Seven Deadly Setups, stop placement methodology, conviction-based position sizing (1/3/6%), monthly P&L management, correlation/intermarket trading via lead/lag divergences, news/data trading framework (NewsPivot, three strategies), CB meeting EV grid, DM FX driver map for 13 G10 pairs, nine bias countermeasures, slump protocol, and overtrading prevention). *Alpha Trader* provides the deeper psychology, methodology, and mathematics layer applicable to ALL markets: 7-stage narrative cycle for strategic timing (when the market is ready to trade a theme), evolved Type I/II/III conviction system with explicit YTD-adjusted sizing formula (call-option P&L structure), Analysis of Competing Hypotheses (ACH) from intelligence analysis, risk appetite self-scoring (1-10), crisis market rules (VIX >40), strategy decay detection framework, variance vs. bad process 9-item diagnostic, and comprehensive self-management systems (Daily Sheet with mood/opportunity scoring, 12-12 journaling, One Goal, Default Mode Network awareness, emotion management protocol). Since 65% of EM returns are driven by DM factors (Willer), both Jha's DM rates mechanics and Donnelly's DM FX framework directly inform EM analysis. Use all five layers: Booth for strategic conviction, Willer for trade timing and sizing, James for FX option instrument selection and vol risk premium assessment, Jha for rates mechanics and trade structuring, Donnelly for FX execution, position sizing, narrative timing, behavioral discipline, crisis adaptation, and DM FX analysis that feeds EM views.
 
 When answering questions, check `references/` for relevant material before responding. If a source has been ingested that is directly relevant, use its framework and cite it.
 
@@ -311,6 +340,18 @@ First, classify the trade type and map it to the relevant checklists.
 - **Position sizing and risk** → Checklist 7: Monthly chunking (10% stop / 2× target), conviction sizing (1/3/6%), position size formula, stop loss rules, vol-adjustment
 - **Behavioral self-assessment** → Checklist 8: Morning assessment, during-session triggers, nine bias countermeasures, slump protocol
 - **Daily routine** → Checklist 9: Pre-market → active trading → post-overlap → weekend process
+
+**Psychology, methodology, and mathematics layer** (Donnelly Alpha Trader — `references/donnelly-alpha-trader-checklists.md`) — for narrative timing, conviction grading, self-management, and crisis adaptation:
+- **Narrative cycle assessment** → Checklist 1: 7-stage cycle position, Stage 6 = best setup (narrative turned, price hasn't)
+- **Conviction grading** → Checklist 2: Type I/II/III sizing with YTD-adjusted formula (Type II = 3% free capital + 10% YTD P&L)
+- **Trade filtering** → Checklist 3: Five dimensions + alternative hypotheses gate (pre-mortem, falsification, peer check)
+- **Competing hypotheses** → Checklist 4: Full ACH for Type II/III trades — 8-step hypothesis testing from intelligence analysis
+- **Risk appetite self-scoring** → Checklist 5: 1-10 scale + zero-bound / end-of-period / house money effect checks
+- **Variance vs. process diagnostic** → Checklist 6: 9-item diagnostic distinguishing acceptable variance from fixable process failure
+- **Crisis market adaptation** → Checklist 7: VIX >40 rules — vol-adjusted sizing, override normal indicators, keep an open mind, have courage
+- **Strategy decay detection** → Checklist 8: Quarterly review — rolling P&L, crowding evidence, technology democratization, kill protocol
+- **Self-management systems** → Checklist 9: Daily Sheet (mood/opportunity scoring → risk budget), 12-12 journaling, One Goal, emotion management
+- **Specific patterns** → Checklist 10: Turnaround Tuesday, September seasonal, bubble deflation at 85%, month-end dollar, run-up trade, "Everybody's Bearish Nobody's Short"
 
 Then dynamically build the data requirement list for the specific trade. The categories are always the same; the specific instruments change:
 
@@ -415,7 +456,8 @@ e.g., "Pay [Country] 2s10s flattener, DV01-neutral at [levels]"
 [Apply Booth strategic overlay: investor base assessment, perception layer, structural shift check]
 [Apply James options overlay if relevant: could this trade be expressed through options? What does the payoff/premium data say about this pair/tenor? Is the vol risk premium working for or against the trade?]
 [Apply Jha rates mechanics overlay: decompose P&L into direction + carry + roll + vol + correlation + liquidity. For DM rates or EM rates with DM overlay: Fed regime, supply/demand, MBS convexity flow direction, swap spread dynamics. For hedging: swap vs Treasury decision, DV01 × yield beta hedge ratio. For structured trades: conditional setup if joint view exists, RV construction if mean-reversion target]
-[Apply Donnelly FX execution overlay: What is the Five-Star conviction grade? Which of the Seven Deadly Setups (if any) support the entry? What does the currency driver map say for DM FX legs? Is there a correlation divergence supporting the trade (lead/lag method)? Are there upcoming data events requiring NewsPivot awareness? What is the correct position size per conviction (1/3/6%) within monthly chunking limits? Where exactly is the stop (technical convergence + ADR buffer)? Behavioral check: is the user trading from a slump, emotional state, or FOMO? For DM FX legs of EM trades: apply the Donnelly driver map and regime identification to determine the DXY/G10 component]
+[Apply Donnelly FX execution overlay (Art of Currency Trading): What is the Five-Star conviction grade? Which of the Seven Deadly Setups (if any) support the entry? What does the currency driver map say for DM FX legs? Is there a correlation divergence supporting the trade (lead/lag method)? Are there upcoming data events requiring NewsPivot awareness? What is the correct position size per conviction (1/3/6%) within monthly chunking limits? Where exactly is the stop (technical convergence + ADR buffer)? For DM FX legs of EM trades: apply the Donnelly driver map and regime identification to determine the DXY/G10 component]
+[Apply Donnelly methodology overlay (Alpha Trader): Where is this trade in the 7-stage narrative cycle? Is narrative turning before price (Stage 6 = best setup)? What is the Type I/II/III conviction grade? For Type II: apply the formula (3% free capital + 10% YTD P&L). Has the trade passed the five filtering dimensions + alternative hypotheses gate? For Type II/III: run full ACH — what are the competing hypotheses and which evidence is diagnostic? Risk appetite check: score 1-10, check for zero-bound/end-of-period/house money distortions. Is this a crisis market (VIX >40)? If yes: override normal indicators, vol-adjust sizing, apply four crisis rules. Behavioral check: is the user trading from a slump (run variance vs. process diagnostic), emotional state (emotion management protocol), or FOMO? Are any specific patterns in play (Turnaround Tuesday, September seasonal, month-end dollar, run-up trade)?]
 
 ## Missing Data / Unresolved Questions
 [What you couldn't find that matters]
